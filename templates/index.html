@@ -1,0 +1,17 @@
+<!doctype html>
+<html ng-app="App">
+  <head>  
+    <meta charset="utf-8">
+    <title>AngularJS Gallery</title>
+    <script type="text/javascript" src="/static/js/angular.min.js"></script>
+    <script type="text/javascript" src="/static/js/app.js"></script>
+    <link rel="stylesheet" href="/static/css/style.css">
+  </head>
+  <body>
+    <div class="gallery-index" ng-controller="IndexController">
+      <p ng-repeat="image in gallery">
+        <img src="{{image}}">
+      </p>
+    </div>
+  </body>
+</html>
