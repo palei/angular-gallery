@@ -1,5 +1,19 @@
 
-var App = angular.module('App', []);
+var App = angular.module('App', [
+    'ngRoute'
+]);
+
+App.config(['$routeProvider',
+    function($routeProvider) {
+        $routeProvider.
+        when('/image/:imageName', {
+            templateUrl: '/static/partials/image-view.html',
+            controller: 'ImageViewController'
+        }).
+        otherwise({
+            redirectTo: '/'
+        });
+    }]);
 
 App.controller('IndexController', function($scope, $http) {
     $scope.URL_PREFIX = '/static/gallery/';
