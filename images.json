@@ -4,8 +4,16 @@
     "size": 301417
   }, 
   {
+    "name": "daft_punk.jpg", 
+    "size": 430698
+  }, 
+  {
     "name": "whatever_this_is.jpg", 
     "size": 55269
+  }, 
+  {
+    "name": "joker.jpg", 
+    "size": 243111
   }, 
   {
     "name": "pilots.jpg", 
@@ -14,6 +22,10 @@
   {
     "name": "stan-lee-and-wolverine.jpeg", 
     "size": 73966
+  }, 
+  {
+    "name": "space_odyssey.jpg", 
+    "size": 219287
   }, 
   {
     "name": "startled_coffee.jpg", 

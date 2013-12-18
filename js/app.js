@@ -30,14 +30,10 @@ App.controller('GalleryIndexController', function($location, $scope, $http) {
     }
 });
 
-App.controller('ImageViewController', function($scope, $routeParams) {
+App.controller('ImageViewController', function($location, $scope, $routeParams) {
     $scope.imageName = $routeParams.imageName;
 
-    $scope.nextImage = function() {
-        alert($rootScope.gallery)
-    }
-
-    $scope.backToIndex = function() {
+    $scope.back = function() {
         $location.path('/');
     }
 });
