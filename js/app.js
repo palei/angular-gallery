@@ -1,26 +1,33 @@
 
-var App = angular.module('App', [
-    'ngRoute'
-]);
+var App = angular.module('App', ['ngRoute']);
 
 App.config(['$routeProvider',
     function($routeProvider) {
         $routeProvider.
+        when('/', {
+            templateUrl: 'partials/gallery-index.html',
+            controller:  'GalleryIndexController'
+        }).
         when('/image/:imageName', {
-            templateUrl: '/static/partials/image-view.html',
-            controller: 'ImageViewController'
+            templateUrl: 'partials/image-view.html',
+            controller:  'ImageViewController'
         }).
         otherwise({
             redirectTo: '/'
         });
     }]);
 
-App.controller('IndexController', function($scope, $http) {
-    $scope.URL_PREFIX = '/static/gallery/';
 
-    $http.get('/thumbnails').then(function(response) {
+App.controller('GalleryIndexController', function($scope, $http) {
+    $scope.URL_PREFIX = '/images/';
+
+    $http.get('images.json').then(function(response) {
         $scope.gallery = response.data;
     });
+});
+
+App.controller('ImageViewController', function($scope, $routeParams) {
+    $scope.imageName = $routeParams.imageName;
 });
 
 
