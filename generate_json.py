@@ -3,7 +3,7 @@ from os import listdir
 from os import stat
 from os.path import join 
 from stat import ST_SIZE
-import json
+import json, Image
 
 ALLOWED_EXTENSIONS = ('.png', '.jpg', '.jpeg', '.gif')
 IMG_DIR = 'images'
@@ -19,3 +19,7 @@ for filename in listdir(IMG_DIR):
 
 with open('images.json', 'w') as datafile:
     json.dump(images, datafile, indent=2, sort_keys=True)
+
+
+def create_thumbnail(image):
+    img = Image.open(join(IMG_DIR, image))
