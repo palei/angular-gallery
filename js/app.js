@@ -18,60 +18,26 @@ App.config(['$routeProvider',
     }]);
 
 
-App.controller('GalleryIndexController', function($scope, $http) {
+App.controller('GalleryIndexController', function($location, $scope, $http) {
     $scope.URL_PREFIX = '/images/';
 
     $http.get('images.json').then(function(response) {
         $scope.gallery = response.data;
     });
+
+    $scope.viewImage = function(imageName) {
+        $location.path('/image/' + imageName);
+    }
 });
 
 App.controller('ImageViewController', function($scope, $routeParams) {
     $scope.imageName = $routeParams.imageName;
+
+    $scope.nextImage = function() {
+        alert($rootScope.gallery)
+    }
+
+    $scope.backToIndex = function() {
+        $location.path('/');
+    }
 });
-
-
-/*
-angular.module('galleryApp', []).
-    factory('DataSource', ['$http', function($http) {
-        return {
-            get: function(url, callback) {
-                $http.get(url).
-                success(function(data, status) {
-                    callback(data);
-                });
-            }
-        };
-    }]);
-
-
-var GalleryController = function($scope, DataSource) {
-    DataSource.get('/something', function(data) {
-        console.log("SOMETHING");
-        $scope.gallery = data;
-    });
-}
-
-*/
-
-/*
-var gallery = angular.module('gallery', ['ngRoute']);
-
-gallery.config(['$routeProvider',
-    function($routeProvider) {
-        $routeProvider.when('/:galleryName', {
-            templateUrl: 'partials/index.html',
-            controller: 'GalleryController'
-        });
-    
-    }]);
-
-
-gallery.controller('GalleryController', function($scope, $http) {
-    $http.get('/something').then(function(response) {
-        $scope.gallery = response.data;
-    });
-});
-
-*/
-

@@ -1,5 +1,6 @@
 <div class="gallery-index">
-  <p ng-repeat="image in gallery">
-    <img ng-src="thumbs/{{image.name}}" ng-click>
+  <p ng-repeat="image in gallery | orderBy:image.name">
+    <img ng-src="thumbs/{{image.name}}" ng-click="viewImage(image.name)">
   </p>
+  <div class="clear"></div>
 </div>

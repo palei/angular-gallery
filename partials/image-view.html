@@ -1,3 +1,7 @@
-<p class="image-view">
-  <img ng-src="images/{{imageName}}">
-</p>
+<div class="image-view">
+  <img ng-src="images/{{imageName}}" ng-click="nextImage()">
+  <p>
+    {{ imageName }}
+  </p>
+  <p style="cursor:pointer" ng-click="backToIndex()">back to index</p>
+</div>

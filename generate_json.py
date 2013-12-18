@@ -18,4 +18,4 @@ for filename in listdir(IMG_DIR):
         images.append(image)
 
 with open('images.json', 'w') as datafile:
-    json.dump(images, datafile, indent=4, sort_keys=True)
+    json.dump(images, datafile, indent=2, sort_keys=True)
