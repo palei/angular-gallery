@@ -12,23 +12,23 @@ THB_DIR = 'thumbs'
 
 images = list()
 
+def create_thumbnail(image, forced=False):
+    if exists(join(THB_DIR, image)) and not forced:
+        return
+    img = Image.open(join(IMG_DIR, image))
+    img.thumbnail((400, 400), Image.ANTIALIAS)
+    img.save(join(THB_DIR, image))
+
 for filename in listdir(IMG_DIR):
     if filename.lower().endswith(ALLOWED_EXTENSIONS):
         image = dict()
         image['name'] = filename
         image['size'] = stat(join(IMG_DIR, filename))[ST_SIZE]
-        create_thumbnail(image)
+
+        create_thumbnail(filename, forced=True)
         
         images.append(image)
 
 with open('images.json', 'w') as datafile:
     json.dump(images, datafile, indent=2, sort_keys=True)
-
-
-def create_thumbnail(image, forced=False):
-    if exists(join(THB_DIR, image)) and not forced:
-        return
-    img = Image.open(join(IMG_DIR, image))
-    img.thumbnail((200, 200), Image.ANTIALIAS)
-    img.save(join(THB_DIR, image))
 

@@ -1,0 +1,55 @@
+body {
+    font-family: sans-serif;
+    width: 840px;
+    margin: 0 auto 0 auto;
+    background-color: #eee;
+}
+
+h1 {
+    font-weight: normal;
+    color: #444;
+    text-align: center;
+    font-size: 3em;
+}
+
+/* GALLERY INDEX */
+
+div.gallery-index {
+
+}
+
+div.gallery-index p {
+    text-align: center;
+    float: left;
+
+    width: 200px;
+    height: 200px;
+
+    background-color: #111;
+
+    margin: 4px;
+}
+
+div.gallery-index img {
+    margin: 0;
+    padding: 0;
+    width:200px;
+    height: 200px;
+}
+
+/* IMAGE VIEW */
+
+div.image-view img {
+    width: 800px;
+    cursor: pointer;
+}
+
+div.image-view p {
+    text-align: center;
+    font-size: 1.4em;
+    color: #666;
+}
+
+/* MISC */
+
+.clear { clear: both;}
